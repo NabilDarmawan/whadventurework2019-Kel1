@@ -1,0 +1,90 @@
+<Schema name="New Schema1">
+  <Dimension type="StandardDimension" visible="true" name="Vendor">
+    <Hierarchy name="dim_vendor" visible="true" hasAll="true" allMemberName="Semua Vendor" primaryKey="VendorID">
+      <Table name="vendor" alias="">
+      </Table>
+      <Level name="Vendor" visible="true" column="AccountNumber" nameColumn="Name" ordinalColumn="VendorID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Credit Rating " visible="true" column="CreditRating" nameColumn="Name" ordinalColumn="VendorID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Prefend Vendor Status" visible="true" column="PreferredVendorStatus" nameColumn="Name" ordinalColumn="VendorID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Active Flag" visible="false" column="ActiveFlag" nameColumn="Name" ordinalColumn="VendorID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Purchasing Web Service URL" visible="true" column="PurchasingWebServiceURL" nameColumn="Name" ordinalColumn="VendorID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Modified date" visible="true" column="ModifiedDate" nameColumn="Name" ordinalColumn="VendorID" type="Timestamp" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="Employee">
+    <Hierarchy name="dim employee" visible="true" hasAll="true" allMemberName="Semua employee" primaryKey="EmployeeID">
+      <Table name="employee" alias="">
+      </Table>
+      <Level name="Name " visible="true" column="EmployeeID" nameColumn="Name" ordinalColumn="EmployeeID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Email " visible="true" column="EmployeeID" nameColumn="Email" ordinalColumn="EmployeeID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Phone " visible="false" column="EmployeeID" nameColumn="Phone" ordinalColumn="EmployeeID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Hire Date" visible="true" column="EmployeeID" nameColumn="HireDate" ordinalColumn="EmployeeID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="Product">
+    <Hierarchy name="dim_product" visible="true" hasAll="true" allMemberName="Semua Produk">
+      <Table name="product" alias="">
+      </Table>
+      <Level name="Kategori" visible="true" column="Category" nameColumn="Name" ordinalColumn="ProductID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Sub Kategori" visible="true" column="Category" nameColumn="Name" ordinalColumn="ProductID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="List Harga" visible="true" column="ListPrice" nameColumn="Name" ordinalColumn="ProductID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="StandardDimension" visible="true" name="Ship Method">
+    <Hierarchy name="dim_smethod" visible="true" hasAll="true" allMemberName="Semua Ship Method" primaryKey="ShipMethodID">
+      <Table name="shipmethod" alias="">
+      </Table>
+      <Level name="Nama Shipper" visible="true" column="ShipMethodID" nameColumn="Name" ordinalColumn="ShipMethodID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+      <Level name="Rate Shipper" visible="true" column="ShipMethodID" nameColumn="Rate" ordinalColumn="ShipMethodID" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Dimension type="TimeDimension" visible="true" name="Time">
+    <Hierarchy name="dim_time" visible="true" hasAll="true" allMemberName="Semua Waktu" primaryKey="TimeID">
+      <Table name="time" alias="">
+      </Table>
+      <Level name="Tahun" visible="true" column="tahun" type="String" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+      </Level>
+      <Level name="Bulan" visible="true" column="bulan" type="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+      </Level>
+      <Level name="Tanggal" visible="true" column="tanggal" nameColumn="namahari" type="String" uniqueMembers="false" levelType="TimeDays">
+      </Level>
+    </Hierarchy>
+  </Dimension>
+  <Cube name="Pembelian" visible="true" cache="true" enabled="true">
+    <Table name="faktapembelian" alias="">
+    </Table>
+    <DimensionUsage source="Product" name="Product" visible="true" foreignKey="ProductID">
+    </DimensionUsage>
+    <DimensionUsage source="Vendor" name="Vendor" visible="true" foreignKey="VendorID">
+    </DimensionUsage>
+    <DimensionUsage source="Employee" name="Employee" visible="true" foreignKey="EmployeeID">
+    </DimensionUsage>
+    <DimensionUsage source="Ship Method" name="Ship Method" visible="true" foreignKey="ShipMethodID">
+    </DimensionUsage>
+    <DimensionUsage source="Time" name="Time" visible="true" foreignKey="TimeID">
+    </DimensionUsage>
+    <Measure name="Order Quantity" column="OrderQty" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Total Price" column="LineTotal" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Received Quantity" column="ReceivedQty" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="Rejected Quantity" column="RejectedQty" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Data Warehouse</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+
+    
+
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+
+    <!--Material Icon -->
+    <link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+
+    <!-- Pe-icon-7 icon -->
+    <link rel="stylesheet" type="text/css" href="css/Pe-icon-7-stroke.css">
+
+    <!-- Magnific pop-up -->
+    <link rel="stylesheet" type="text/css" href="css/magnific-popup.css" />
+
+    <!--Slider-->
+    <link rel="stylesheet" href="css/owl.carousel.css" />
+    <link rel="stylesheet" href="css/owl.transitions.css" />
+
+    <!-- Custom  Css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" href="css/colors/blue.css" id="color-opt">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js">
+    </script>
+</head>
+
+<body>
+
+    <h1>Final Project DWO Kelompok 1</h1>
+    <p> anggota kelompok 1:</p>
+    <p>- Akhmad Nabil Darmawan 		(19082010106) </p>
+    <p>- Akira Permata Ramadhani		(19082010088)</p>
+    <p>- Fadillah Tyanto Bagaskoro	 	(19082010111)</p>
+    <p>- Fauzan Atha Prakoso			(19082010080)</p>    
+    <p>- Mahendra Priyo Wibisono  		(19082010067)</p>
+    <section class="section" id="client">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="title-content text-center">
+                        
+                        
+                    </div>
+                    <ul>
+                      <li>
+                       <h3><a href="faktapenjualan.html">Fakta penjualan</a></h3> 
+                      </li>  
+                      <li>
+                        <h3><a href="faktapembelian.html">Fakta pembelian</a></li></h3>
+                    </ul>
+                    
+                </div>
+            </div>
+            <h3><a href="index.html" class="link-light">Mondrian</a></h3>
+            <div class="row justify-content-center">
+                    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                <script>
+                    var xValues = ["Fakta Pembelian", "Fakta Penjualan"];
+                    var yValues = [2252382, 214516];
+                    var barColors = ["red","blue"];
+
+                    new Chart("myChart", {
+                    type: "bar",
+                    data: {
+                        labels: xValues,
+                        datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                        }]
+                    },
+                    options: {
+                        legend: {display: false},
+                        title: {
+                        display: true,
+                        text: "Data Warehouse OLAP"
+                        }
+                    }
+                    });
+                </script>
+            </div>
+            
+        </div>
+    </section>
+
+
+
+    <!-- JAVASCRIPTS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrollspy.min.js"></script>
+    <script src="js/counter.init.js"></script>
+    <script src="js/contact-form.init.js"></script>
+    <!-- owl-carousel -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- JARALLAX JS -->
+    <script src="js/jarallax.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Fakta Penjualan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+
+
+    <!-- google font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+
+    <!--Material Icon -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/materialdesignicons.min.css"
+    />
+
+    <!-- Pe-icon-7 icon -->
+    <link rel="stylesheet" type="text/css" href="css/Pe-icon-7-stroke.css" />
+
+    <!-- Magnific pop-up -->
+    <link rel="stylesheet" type="text/css" href="css/magnific-popup.css" />
+
+    <!--Slider-->
+    <link rel="stylesheet" href="css/owl.carousel.css" />
+    <link rel="stylesheet" href="css/owl.theme.css" />
+    <link rel="stylesheet" href="css/owl.transitions.css" />
+
+    <!-- Custom  Css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" href="css/colors/blue.css" id="color-opt" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="nav-link" href="index1.html">Home</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="faktapenjualan.html"
+              >penjualan <span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </nav>
+    <section class="section bg-darklight" id="about">
+      <div class="container">
+        <div class="row mt-5">
+          <div class="col-lg-12">
+            <h3 class="title-content text-center text-white">
+              Fakta Pembelian
+            </h3>
+            <canvas id="myChart"></canvas>
+
+            <script>
+              var xValues = [2001, 2002, 2003, 2004];
+
+              new Chart("myChart", {
+                type: "line",
+                data: {
+                  labels: xValues,
+                  datasets: [
+                    {
+                      data: [3328, 153539, 577020, 1518495],
+                      borderColor: "#dc3545",
+                      fill: false,
+                    },
+                    {
+                      data: [103869, 4226133, 15550535, 41747092],
+                      borderColor: "#198754",
+                      fill: false,
+                    },
+                    {
+                      data: [3244, 152107, 571688, 1504295],
+                      borderColor: "#0d6efd",
+                      fill: false,
+                    },
+                    {
+                      data: [1, 16930, 23227, 32542],
+                      borderColor: "#d63384",
+                      fill: false,
+                    },
+                  ],
+                },
+                options: {
+                  legend: { display: false },
+                },
+              });
+            </script>
+          </div>
+        </div>
+        <div class="row mt-3 justify-content-center">
+          <button
+            type="button"
+            class="btn"
+            style="background-color: #dc3545"
+          ></button
+          ><span class="text-white ml-2 mr-4"> OrderQty</span>
+          <button
+            type="button"
+            class="btn"
+            style="background-color: #198754"
+          ></button
+          ><span class="text-white ml-2 mr-4"> LineTotal</span>
+          <button
+            type="button"
+            class="btn"
+            style="background-color: #0d6efd"
+          ></button
+          ><span class="text-white ml-2 mr-4"> ReceivedQty</span>
+          <button
+            type="button"
+            class="btn"
+            style="background-color: #d63384"
+          ></button
+          ><span class="text-white ml-2 mr-4"> RejectedQty</span>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
